@@ -34,3 +34,21 @@
 -- 	emp_no INT,
 -- 	from_date VARCHAR(15),
 -- 	to_date VARCHAR(15));	
+
+--Data Analysis 
+--Q1)
+-- Joining tables & finding first and last names, gender and salary
+SELECT employees.first_name, employees.last_name, employees.gender, salaries.salary, employees.emp_no
+FROM salaries
+INNER JOIN employees ON
+employees.emp_no=salaries.emp_no
+
+--Q2)
+-- Select employees where hire_date = 1986
+-- SELECT * FROM employees
+-- ORDER BY CONVERT(hire_date, INT) 
+
+--Q3)
+-- List manager of each department w/ dept_no, dept_name, manager's emp_no, last_name, first_name, hire_date & to_date
+SELECT * FROM dept_manager
+SELECT * FROM employees
