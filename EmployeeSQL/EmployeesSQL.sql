@@ -11,13 +11,13 @@
 -- 	from_date VARCHAR(15),
 -- 	to_date VARCHAR(15));
 	
--- CREATE TABLE employees(
--- 	emp_no INT,
--- 	birth_date VARCHAR(15),
--- 	first_name VARCHAR(20),
--- 	last_name VARCHAR(20),
--- 	gender VARCHAR(1),
--- 	hire_date VARCHAR(20));	
+CREATE TABLE employees(
+	emp_no INT,
+	birth_date VARCHAR(15),
+	first_name VARCHAR(20),
+	last_name VARCHAR(20),
+	gender VARCHAR(1),
+	hire_date INT);	
 	
 -- CREATE TABLE departments(
 -- 	dept_no VARCHAR(4),
@@ -34,6 +34,9 @@
 -- 	emp_no INT,
 -- 	from_date VARCHAR(15),
 -- 	to_date VARCHAR(15));	
+
+-- --Droppning tables
+-- DROP TABLE IF EXISTS employees
 
 --Data Analysis 
 --Q1)
