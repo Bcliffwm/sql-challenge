@@ -59,3 +59,9 @@ e.first_name, e.last_name, e.hire_date
 FROM dept_manager as dm
 INNER JOIN departments as d ON dm.dept_no = d.dept_no
 INNER JOIN employees as e ON dm.emp_no = e.emp_no
+
+--Q4) list department of each employee w/ emp_no, first_name, last_name and dept_name
+SELECT d.dept_name, de.dept_no, de.emp_no, e.emp_no, e.first_name, e.last_name
+FROM departments as d
+INNER JOIN dept_emp as de ON d.dept_no = de.dept_no
+INNER JOIN employees as e ON de.emp_no = e.emp_no
