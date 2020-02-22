@@ -11,13 +11,13 @@
 -- 	from_date VARCHAR(15),
 -- 	to_date VARCHAR(15));
 	
-CREATE TABLE employees(
-	emp_no INT,
-	birth_date VARCHAR(15),
-	first_name VARCHAR(20),
-	last_name VARCHAR(20),
-	gender VARCHAR(1),
-	hire_date INT);	
+-- CREATE TABLE employees(
+-- 	emp_no INT,
+-- 	birth_date VARCHAR(15),
+-- 	first_name VARCHAR(20),
+-- 	last_name VARCHAR(20),
+-- 	gender VARCHAR(1),
+-- 	hire_date VARCHAR(10));	
 	
 -- CREATE TABLE departments(
 -- 	dept_no VARCHAR(4),
@@ -35,7 +35,7 @@ CREATE TABLE employees(
 -- 	from_date VARCHAR(15),
 -- 	to_date VARCHAR(15));	
 
--- --Droppning tables
+--Droppning tables
 -- DROP TABLE IF EXISTS employees
 
 --Data Analysis 
@@ -47,11 +47,15 @@ INNER JOIN employees ON
 employees.emp_no=salaries.emp_no
 
 --Q2)
--- Select employees where hire_date = 1986
--- SELECT * FROM employees
--- ORDER BY CONVERT(hire_date, INT) 
+-- Select employees where hire_date = 1986 TODO: convert hire_date to int variable type
+SELECT * FROM employees WHERE hire_date == 1986
+
 
 --Q3)
 -- List manager of each department w/ dept_no, dept_name, manager's emp_no, last_name, first_name, hire_date & to_date
-SELECT * FROM dept_manager
-SELECT * FROM employees
+
+SELECT dm.dept_no, dm.emp_no, dm.to_date, d.dept_name, e.emp_no, 
+e.first_name, e.last_name, e.hire_date 
+FROM dept_manager as dm
+INNER JOIN departments as d ON dm.dept_no = d.dept_no
+INNER JOIN employees as e ON dm.emp_no = e.emp_no
