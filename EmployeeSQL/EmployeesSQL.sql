@@ -1,33 +1,33 @@
---Creating Tables
--- CREATE TABLE titles(
--- 	emp_no INT,
--- 	title VARCHAR(20),
--- 	from_date DATE,
--- 	to_date DATE);
+Creating Tables
+CREATE TABLE titles(
+	emp_no INT,
+	title VARCHAR(20),
+	from_date DATE,
+	to_date DATE);
 
--- CREATE TABLE salaries(
--- 	emp_no INT,
--- 	salary INT,
--- 	from_date DATE,
--- 	to_date DATE);
+CREATE TABLE salaries(
+	emp_no INT,
+	salary INT,
+	from_date DATE,
+	to_date DATE);
 	
--- CREATE TABLE employees(
--- 	emp_no INT,
--- 	birth_date VARCHAR(15),
--- 	first_name VARCHAR(20),
--- 	last_name VARCHAR(20),
--- 	gender VARCHAR(1),
--- 	hire_date DATE);	
+CREATE TABLE employees(
+	emp_no INT,
+	birth_date VARCHAR(15),
+	first_name VARCHAR(20),
+	last_name VARCHAR(20),
+	gender VARCHAR(1),
+	hire_date DATE);	
 	
--- CREATE TABLE departments(
--- 	dept_no VARCHAR(4),
--- 	dept_name VARCHAR(20));	
+CREATE TABLE departments(
+	dept_no VARCHAR(4),
+	dept_name VARCHAR(20));	
 	
--- CREATE TABLE dept_emp(
--- 	emp_no INT,
--- 	dept_no VARCHAR(4),
--- 	from_date DATE,
--- 	to_date DATE);	
+CREATE TABLE dept_emp(
+	emp_no INT,
+	dept_no VARCHAR(4),
+	from_date DATE,
+	to_date DATE);	
 	
 CREATE TABLE dept_manager(
 	dept_no VARCHAR(4),
@@ -77,3 +77,17 @@ SELECT d.dept_name, e.first_name, e.last_name, e.emp_no
 		ON (de.dept_no = d.dept_no)
 	WHERE d.dept_name = 'Sales'; 
 
+-- Q7) List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+SELECT d.dept_name, e.first_name, e.last_name, e.emp_no
+	FROM employees as e 
+	INNER JOIN dept_emp as de 
+		ON (de.emp_no = e.emp_no)
+	INNER JOIN departments as d 
+		ON (de.dept_no = d.dept_no)
+	WHERE d.dept_name IN ('Sales','Development') ;
+	
+-- Q8) In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+SELECT last_name, COUNT(last_name) 
+	FROM employees
+	GROUP BY last_name
+	ORDER BY COUNT(last_name) DESC;
