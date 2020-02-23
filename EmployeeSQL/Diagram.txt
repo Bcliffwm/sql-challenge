@@ -1,0 +1,41 @@
+Employees
+--
+emp_no INT PK 
+birth_date DATE
+first_name STRING
+last_name STRING
+gender STRING
+hire_date DATE
+
+Dept_emp
+--
+emp_no INT PK FK - Employees.emp_no
+dept_no STRING PK FK - Departments.dept_no
+from_date DATE
+to_date DATE
+
+Departments 
+--
+dept_no STRING PK
+dept_name STRING
+
+Dept_manager
+--
+dept_no STRING PK FK - Departments.dept_no
+emp_no INTEGER PK FK - Employees.emp_no
+from_date DATE 
+to_date DATE
+
+Salaries
+--
+emp_no INTEGER PK FK - Employees.emp_no
+salary INTEGER 
+from_date DATE
+to_date DATE
+
+Titles
+--
+emp_no INT PK FK - Employees.emp_no
+title STRING
+from_date DATE
+to_date DATE
